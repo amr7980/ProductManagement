@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management - Web Storefront</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #004aad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #004aad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 30px;
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Web Storefront - Product Management</h1>
+    <p>Add or Update Product Details</p>
+</header>
+
+<form id="productForm">
+    <h2>Product Form</h2>
+
+    <label for="productId">Product ID:</label>
+    <input type="text" id="productId" name="productId" placeholder="e.g. 101">
+
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" name="productName" placeholder="e.g. Wireless Headphones">
+
+    <label for="productDescription">Description:</label>
+    <textarea id="productDescription" name="productDescription" placeholder="Product details..."></textarea>
+
+    <label for="productPrice">Price ($):</label>
+    <input type="number" step="0.01" id="productPrice" name="productPrice" placeholder="e.g. 99.99">
+
+    <label for="productCategory">Category:</label>
+    <select id="productCategory" name="productCategory">
+        <option value="">Select a category</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="books">Books</option>
+        <option value="sports">Sports</option>
+    </select>
+
+    <label for="productImage">Image URL:</label>
+    <input type="url" id="productImage" name="productImage" placeholder="https://example.com/image.jpg">
+
+    <button type="submit">Save Product</button>
+</form>
+
+
+<script>
+    const form = document.getElementById('productForm');
+    const jsonPreview = document.getElementById('jsonPreview');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const product = {
+            id: form.productId.value,
+            name: form.productName.value,
+            description: form.productDescription.value,
+            price: parseFloat(form.productPrice.value),
+            category: form.productCategory.value,
+            image: form.productImage.value
+        };
+
+        jsonPreview.textContent = JSON.stringify(product, null, 4);
+        form.reset(); // Clear the form for next entry
+    });
+</script>
+
+</body>
+</html>
