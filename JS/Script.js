@@ -1,4 +1,3 @@
-// JSON & jQuery Logic Contributor: Wonyoung Park
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("shopperForm");
