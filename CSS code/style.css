@@ -1,0 +1,13 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+}
+
+h1 {
+  color: #004aad;
+}
+
+pre {
+  background-color: #f8f9fa;
+  font-size: 0.95rem;
+}
